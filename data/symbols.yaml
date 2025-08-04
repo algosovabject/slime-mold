@@ -1,0 +1,41 @@
+nodes:
+  - id: decay
+    label: "Decay"
+    meaning: "A necessary rotting. Old structures must collapse for rebirth to begin."
+
+  - id: rebirth
+    label: "Rebirth"
+    meaning: "Something dormant awakens. Life after death, but changed."
+
+  - id: illusion
+    label: "Illusion"
+    meaning: "What you see is not the full truth. Beware appearances."
+
+  - id: sacrifice
+    label: "Sacrifice"
+    meaning: "A price must be paid. What are you willing to give?"
+
+  - id: hunger
+    label: "Hunger"
+    meaning: "Unfulfilled desire drives the path forward."
+
+edges:
+  - source: decay
+    target: rebirth
+    weight: 2
+
+  - source: decay
+    target: illusion
+    weight: 3
+
+  - source: illusion
+    target: sacrifice
+    weight: 1
+
+  - source: hunger
+    target: sacrifice
+    weight: 2
+
+  - source: hunger
+    target: rebirth
+    weight: 4
