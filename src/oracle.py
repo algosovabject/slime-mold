@@ -1,24 +1,36 @@
-from graph_builder import load_graph
-from ooze_engine import find_ooze_path
+import yaml
+import networkx as nx
+import random  # Don't forget this import for walk_graph
 
-def main():
-    G = load_graph('data/symbols.yaml')
+def load_oracle_graph(yaml_path):
+    with open(yaml_path, 'r') as f:
+        data = yaml.safe_load(f)
 
-    print("🔮 Welcome to the Oracle of Ooze 🔮")
-    start = input("Enter starting symbol (e.g., 'hunger'): ").strip().lower()
-    end = input("Enter ending symbol (e.g., 'rebirth'): ").strip().lower()
+    G = nx.DiGraph()
 
-    path = find_ooze_path(G, start, end)
+    for node in data['nodes']:
+        G.add_node(node['id'], label=node['label'], meaning=node['meaning'], tags=node['tags'])
 
-    if not path:
-        print("☠️ The mold finds no path. Your question echoes unanswered.")
-        return
+    for edge in data['edges']:
+        G.add_edge(edge['source'], edge['target'], weight=edge['weight'])
 
-    print("\n🧠 The mold has spoken:")
-    for node in path:
-        label = G.nodes[node]['label']
-        meaning = G.nodes[node]['meaning']
-        print(f"→ {label.upper()}: {meaning}")
+    return G
 
+def walk_graph(G, start='life', steps=3):
+    path = [start]
+    current = start
+
+    for _ in range(steps):
+        neighbors = list(G.successors(current))
+        if not neighbors:
+            break
+        current = random.choice(neighbors)
+        path.append(current)
+
+    return path
+
+# Test run
 if __name__ == "__main__":
-    main()
+    G = load_oracle_graph("oracle_nodes.yaml")
+    path = walk_graph(G)
+    print("Traversal path:", path)

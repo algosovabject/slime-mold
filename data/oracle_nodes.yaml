@@ -1,0 +1,33 @@
+nodes:
+  - id: "life"
+    label: "The Spark of Life"
+    meaning: "Birth, beginnings, potential"
+    tags: ["origin", "creation", "essence"]
+  
+  - id: "death"
+    label: "The Final Quiet"
+    meaning: "Endings, transformation, the void"
+    tags: ["necrosis", "rebirth", "entropy"]
+
+  - id: "serpent"
+    label: "The Serpent"
+    meaning: "Knowledge, subversion, cyclicality"
+    tags: ["wisdom", "danger", "ouroboros"]
+
+  - id: "mirror"
+    label: "The Mirror"
+    meaning: "Self-reflection, illusion, perception"
+    tags: ["truth", "hallucination", "subjectivity"]
+
+edges:
+  - source: "life"
+    target: "serpent"
+    weight: 1.0
+
+  - source: "serpent"
+    target: "mirror"
+    weight: 2.0
+
+  - source: "mirror"
+    target: "death"
+    weight: 1.5
