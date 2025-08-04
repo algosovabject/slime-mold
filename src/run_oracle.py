@@ -1,6 +1,6 @@
 from oracle import load_oracle_graph, walk_graph
 
-G = load_oracle_graph("oracle_nodes.yaml")
+G = load_oracle_graph("/Users/thirstsnake/Documents/Projects/slime-mold/data/oracle_nodes.yaml")
 path = walk_graph(G)
 
 print("\nYour path through the Oracle of Ooze:")

@@ -31,6 +31,6 @@ def walk_graph(G, start='life', steps=3):
 
 # Test run
 if __name__ == "__main__":
-    G = load_oracle_graph("oracle_nodes.yaml")
+    G = load_oracle_graph("/Users/thirstsnake/Documents/Projects/slime-mold/data/oracle_nodes.yaml")
     path = walk_graph(G)
     print("Traversal path:", path)

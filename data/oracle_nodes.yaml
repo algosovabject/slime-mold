@@ -3,31 +3,112 @@ nodes:
     label: "The Spark of Life"
     meaning: "Birth, beginnings, potential"
     tags: ["origin", "creation", "essence"]
+    imagery: "A glimmer in darkness; the first breath"
+    associations:
+      tarot: "The Fool"
+      alchemy: "Air"
+      letter: "Aleph"
+      path: "11 - Keter to Chokmah"
   
   - id: "death"
     label: "The Final Quiet"
     meaning: "Endings, transformation, the void"
     tags: ["necrosis", "rebirth", "entropy"]
+    imagery: "The consuming darkness rolling over slowly closing eyes"
+    associations:
+      tarot: "Death"
+      alchemy: "Prima Materia"
+      letter: "Nun"
+      path: "24 - Tiphareth to Netzach"
 
   - id: "serpent"
     label: "The Serpent"
     meaning: "Knowledge, subversion, cyclicality"
     tags: ["wisdom", "danger", "ouroboros"]
+    imagery: "An iridescent serpent coils around itself in endless rings"
+    associations:
+      tarot: "Art"
+      alchemy: "Phosphorous"
+      letter: "Samekh"
+      path: "25 - Tiphareth to Yesod"
 
   - id: "mirror"
     label: "The Mirror"
     meaning: "Self-reflection, illusion, perception"
     tags: ["truth", "hallucination", "subjectivity"]
+    imagery: "The full moon hangs over a still lake in darkest night"
+    associations:
+      tarot: "The Moon"
+      alchemy: "Water"
+      letter: "Qoph"
+      path: "29 - Netzach to Malkuth"
+    
+  - id: "sword"
+    label: "The Flaming Sword"
+    meaning: "Severance, annihilation, clearing"
+    tags: ["clearing", "vitality", "liberation"]
+    imagery: "Scorched earth policy; the tower falls"
+    associations:
+      tarot: "The Tower"
+      alchemy: "Sulfur"
+      letter: "Pe"
+      path: "27 - Netzach to Yod"
+
+  - id: "altar"
+    label: "The Altar"
+    meaning: "Magick, ritual, knowledge"
+    tags: ["manifestation", "learning", "synthesis"]
+    imagery: "A marble altar covered in magickal tools"
+    associations:
+      tarot: "The Magus"
+      alchemy: "Mercury"
+      letter: "Beth"
+      zodiac: "12 - Kether to Binah"
+
+  - id: "throne"
+    label: "The Empty Throne"
+    meaning: "Sovereignty, duty, power"
+    tags: ["tyranny", "will", "empowerment"]
+    imagery: "Before you, an empty golden throne"
+    associations:
+      tarot: "The Emperor"
+      alchemy: "Mars"
+      letter: "Tzaddi"
+      path: "28 - Yetzach to Yesod"
+
+  - id: "garden"
+    label: "The Secret Garden"
+    meaning: "Fecundity, love, harmony"
+    tags: ["feminine", "abundance", "growth"]
+    imagery: "A lush garden fragrant with flowers and fruit"
+    associations:
+      tarot: "The Empress"
+      alchemy: "Prima Materia"
+      letter: "Daleth"
+      path: "14 - Chokmah to Binah"
 
 edges:
   - source: "life"
-    target: "serpent"
+    target: "altar"
     weight: 1.0
+    description: "The divine breath fills the lungs and exhales as the word"
+
+  - source: "throne"
+    target: "sword"
+    weight: 1.0
+    description: "Take your power into your own hands... and strike!"
+
+  - source: "sword"
+    target: "death"
+    weight: 1.0
+    description: "The way is clear, the obstacles are removed - now silence"
 
   - source: "serpent"
     target: "mirror"
-    weight: 2.0
+    weight: 1.0
+    description: "Know thyself to know the universe"
 
-  - source: "mirror"
-    target: "death"
+  - source: "life"
+    target: "garden"
     weight: 1.5
+    description: "Receive then revel in thine blessings"
