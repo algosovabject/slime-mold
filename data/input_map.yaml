@@ -1,0 +1,21 @@
+# data/input_map.yaml
+
+love:
+  keywords: ["love", "relationship", "heart", "romance", "connection"]
+  node: "spark"
+
+death:
+  keywords: ["death", "end", "grief", "loss", "mourning"]
+  node: "void"
+
+knowledge:
+  keywords: ["wisdom", "knowledge", "learning", "truth", "insight"]
+  node: "serpent"
+
+identity:
+  keywords: ["self", "who am I", "identity", "reflection"]
+  node: "mirror"
+
+purpose:
+  keywords: ["purpose", "meaning", "destiny", "life"]
+  node: "crown"

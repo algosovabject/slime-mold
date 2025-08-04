@@ -1,18 +1,31 @@
 import yaml
 import networkx as nx
-import random  # Don't forget this import for walk_graph
+import random
 
-def load_oracle_graph(yaml_path):
-    with open(yaml_path, 'r') as f:
-        data = yaml.safe_load(f)
+def load_yaml(path):
+    with open(path, 'r') as f:
+        return yaml.safe_load(f)
+
+def load_oracle_graph(nodes_path, edges_path):
+    node_data = load_yaml(nodes_path)
+    edge_data = load_yaml(edges_path)
 
     G = nx.DiGraph()
 
-    for node in data['nodes']:
-        G.add_node(node['id'], label=node['label'], meaning=node['meaning'], tags=node['tags'])
+    for node in node_data['nodes']:
+        G.add_node(
+            node['id'],
+            label=node.get('label', ''),
+            meaning=node.get('meaning', ''),
+            tags=node.get('tags', [])
+        )
 
-    for edge in data['edges']:
-        G.add_edge(edge['source'], edge['target'], weight=edge['weight'])
+    for edge in edge_data['edges']:
+        G.add_edge(
+            edge['source'],
+            edge['target'],
+            weight=edge.get('weight', 1)
+        )
 
     return G
 
@@ -29,8 +42,18 @@ def walk_graph(G, start='life', steps=3):
 
     return path
 
-# Test run
+def print_oracle_path(G, path):
+    print("\nYour path through the Oracle of Ooze:")
+    for node in path:
+        label = G.nodes[node].get('label', node)
+        meaning = G.nodes[node].get('meaning', '')
+        print(f"> {label}: {meaning}")
+
+# Quick script runner
 if __name__ == "__main__":
-    G = load_oracle_graph("/Users/thirstsnake/Documents/Projects/slime-mold/data/oracle_nodes.yaml")
+    G = load_oracle_graph(
+        "/Users/thirstsnake/Documents/Projects/slime-mold/data/oracle_nodes.yaml",
+        "/Users/thirstsnake/Documents/Projects/slime-mold/data/oracle_edges.yaml"
+    )
     path = walk_graph(G)
-    print("Traversal path:", path)
+    print_oracle_path(G, path)

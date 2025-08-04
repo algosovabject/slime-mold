@@ -1,0 +1,25 @@
+edges: 
+  - source: "life"
+    target: "altar"
+    weight: 1.0
+    description: "The divine breath fills the lungs and exhales as the word"
+
+  - source: "throne"
+    target: "sword"
+    weight: 1.0
+    description: "Take your power into your own hands... and strike!"
+
+  - source: "sword"
+    target: "death"
+    weight: 1.0
+    description: "The way is clear, the obstacles are removed - now silence"
+
+  - source: "serpent"
+    target: "mirror"
+    weight: 1.0
+    description: "Know thyself to know the universe"
+
+  - source: "life"
+    target: "garden"
+    weight: 1.5
+    description: "Receive then revel in thine blessings"

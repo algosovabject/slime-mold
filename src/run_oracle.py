@@ -1,9 +1,17 @@
 from oracle import load_oracle_graph, walk_graph
+from input_parser import load_input_map, parse_input
 
-G = load_oracle_graph("/Users/thirstsnake/Documents/Projects/slime-mold/data/oracle_nodes.yaml")
-path = walk_graph(G)
+if __name__ == "__main__":
+    G = load_oracle_graph("data/oracle_nodes.yaml", "data/oracle_edges.yaml")
+    input_map = load_input_map("data/input_map.yaml")
 
-print("\nYour path through the Oracle of Ooze:")
-for node_id in path:
-    node = G.nodes[node_id]
-    print(f"> {node['label']}: {node['meaning']}")
+    user_input = input("Ask the Ooze Oracle your question: ")
+    start_node = parse_input(user_input, input_map)
+
+    if start_node is None:
+        print("The oracle gurgles uncertainly... it does not understand.")
+    else:
+        path = walk_graph(G, start=start_node)
+        print("Your path through the Oracle of Ooze:")
+        for node in path:
+            print(f"> {G.nodes[node]['label']}: {G.nodes[node]['meaning']}")
