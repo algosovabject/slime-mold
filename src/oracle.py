@@ -65,6 +65,6 @@ def weighted_pseudopod_walk(G, start='life', steps=4, tag_bias=True):
     return path
 
 def log_behavior(entry, path="data/ooze_behavior.log"):
-with open(path, "a") as f:
-    timestamp = datetime.datetime.now().isoformat()
-    f.write(f"{timestamp} - {entry}\n")
+    with open(path, "a") as f:
+        timestamp = datetime.datetime.now().isoformat()
+        f.write(f"{timestamp} - {entry}\n")
