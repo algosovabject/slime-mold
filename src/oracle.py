@@ -1,6 +1,8 @@
 import yaml
 import networkx as nx
 import random
+import math
+import datetime
 
 def load_yaml(path):
     with open(path, 'r') as f:
@@ -29,31 +31,40 @@ def load_oracle_graph(nodes_path, edges_path):
 
     return G
 
-def walk_graph(G, start='life', steps=3):
+def weighted_pseudopod_walk(G, start='life', steps=4, tag_bias=True):
     path = [start]
     current = start
+    visited = set([start])
 
     for _ in range(steps):
         neighbors = list(G.successors(current))
         if not neighbors:
             break
-        current = random.choice(neighbors)
-        path.append(current)
+
+        weights = []
+        for n in neighbors:
+            base_weight = G.edges[current, n].get('weight', 1.0)
+
+            if tag_bias:
+                shared_tags = set(G.nodes[current]['tags']) & set(G.nodes[n]['tags'])
+                tag_bonus = 1 + len(shared_tags)
+                final_weight = base_weight * tag_bonus
+            else:
+                final_weight = base_weight
+
+            weights.append(final_weight)
+
+        total_weight = sum(weights)
+        probabilities = [w / total_weight for w in weights]
+        next_node = random.choices(neighbors, weights=probabilities, k=1)[0]
+
+        path.append(next_node)
+        visited.add(next_node)
+        current = next_node
 
     return path
 
-def print_oracle_path(G, path):
-    print("\nYour path through the Oracle of Ooze:")
-    for node in path:
-        label = G.nodes[node].get('label', node)
-        meaning = G.nodes[node].get('meaning', '')
-        print(f"> {label}: {meaning}")
-
-# Quick script runner
-if __name__ == "__main__":
-    G = load_oracle_graph(
-        "/Users/thirstsnake/Documents/Projects/slime-mold/data/oracle_nodes.yaml",
-        "/Users/thirstsnake/Documents/Projects/slime-mold/data/oracle_edges.yaml"
-    )
-    path = walk_graph(G)
-    print_oracle_path(G, path)
+def log_behavior(entry, path="data/ooze_behavior.log"):
+with open(path, "a") as f:
+    timestamp = datetime.datetime.now().isoformat()
+    f.write(f"{timestamp} - {entry}\n")
