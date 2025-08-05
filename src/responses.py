@@ -1,3 +1,5 @@
+import random
+
 MOOD_RESPONSES = {
     "bubbling with ideas": [
         "The ooze is effervescent and eager to answer.",

@@ -1,10 +1,15 @@
-from astral import LocationInfo
-from astral.sun import sun
-from astral.moon import moon_phase
 import datetime
+import pytz 
+from astral import Astral
+
+a = Astral()
+a.solar_depression = 'civil'
 
 # Define city where Lil Oozey lives
-city = LocationInfo("Atlanta", "USA", "US/Eastern", 33.7490, -84.3880)
+city = a['Atlanta']
+
+now = datetime.datetime.now()
+hour = now.hour
 
 # Mood definitions based on time of day
 TIME_MOODS = {
@@ -32,22 +37,19 @@ SEASON_MOODS = {
 }
 
 def get_time_of_day():
-    now = datetime.datetime.now(city.timezone)
-    s = sun(city.observer, date=now.date(), tzinfo=city.timezone)
-
-    if now < s['sunrise']:
+    if 5 <= hour < 9:
         return "pre-dawn"
-    elif s['sunrise'] <= now < s['noon']:
+    elif 9 <= hour < 12:
         return "morning"
-    elif s['noon'] <= now < s['sunset']:
+    elif 12 <= hour < 17:
         return "afternoon"
-    elif s['sunset'] <= now < s['dusk']:
+    elif 17 <= hour < 21:
         return "evening"
     else:
         return "night"
 
 def get_moon_phase_name():
-    phase = moon_phase(datetime.date.today())
+    phase = a.moon_phase(datetime.date.today())
 
     if phase == 0:
         return "new"

@@ -4,6 +4,7 @@ import os
 # Add src/ to sys.path
 sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), '..', 'src')))
 
+import random
 import streamlit as st
 import networkx as nx
 import matplotlib.pyplot as plt
