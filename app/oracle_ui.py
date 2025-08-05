@@ -10,13 +10,14 @@ import networkx as nx
 import matplotlib.pyplot as plt
 
 from oracle import load_oracle_graph, weighted_pseudopod_walk
+from oracle_viz import simulate_exploration, plot_exploration_and_pruned
 from mood_engine import get_oracle_mood
 from input_parser import load_input_map, parse_input
 from memory import log_query
 from responses import get_flavor_line, get_season_flavor
 
-st.set_page_config(page_title="Lil Oozey's Oracle", page_icon="🧠")
-st.title("🧠 The Slime Mold Oracle")
+st.set_page_config(page_title="The Great Lil Oozey", page_icon="🧠")
+st.title("🧠 The Slime Mold Speaks")
 
 # Load everything
 G = load_oracle_graph("data/oracle_nodes.yaml", "data/oracle_edges.yaml")
@@ -44,6 +45,12 @@ if user_input:
         for node in path:
             st.markdown(f"**{G.nodes[node]['label']}**: {G.nodes[node]['meaning']}")
 
+        edge_hits = simulate_exploration(G, start_node, num_walks=40, max_steps=5)
+        pruned_path = weighted_pseudopod_walk(G, start=start_node)
+        fig, ax = plt.subplots(figsize=(8,6))
+        plot_exploration_and_pruned(G, start_node, pruned_path, edge_hits, ax=ax)
+        st.pyplot(fig)
+
 if user_input and start_node:
     pos = nx.spring_layout(G, seed=42)  # consistent layout
     node_colors = []
@@ -53,9 +60,3 @@ if user_input and start_node:
             node_colors.append("limegreen")
         else:
             node_colors.append("lightgray")
-
-    plt.figure(figsize=(12, 8))
-    nx.draw(G, pos, with_labels=False, node_color=node_colors, node_size=400, edge_color='gray', alpha=0.5)
-    nx.draw_networkx_labels(G, pos, labels={n: G.nodes[n]['label'] for n in G.nodes}, font_size=8)
-
-    st.pyplot(plt)
