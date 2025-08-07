@@ -81,8 +81,304 @@ nodes:
     meaning: "Fecundity, love, harmony"
     tags: ["feminine", "abundance", "growth"]
     imagery: "A lush garden fragrant with flowers and fruit"
+    class: "entity"
     associations:
       tarot: "The Empress"
       alchemy: "Prima Materia"
       letter: "Daleth"
       path: "14 - Chokmah to Binah"
+      
+  - id: "egg"
+    label: "The Orphic Egg"
+    meaning: "Concept, foment, gestation"
+    tags: ["feminine", "potential", "pregnancy"]
+    imagery: "A serpent wraps its egg in its coils"
+    class: "Symbol"
+    associations:
+      tarot: "The Four Aces"
+      alchemy: "Prima Materia"
+
+  - id: "tyger"
+    label: "The Tyger"
+    meaning: "Predation, strength, camouflage"
+    tags: ["animal", "attack", "timing"]
+    imagery: "Did he who made the Lamb make thee?"
+    class: "Entity"
+    associations:
+      tarot: "Lust"
+      letter: "Teth"
+      path: "19 - Chesed to Geburah"
+      philosopher: "William Blake"
+
+  - id: keter
+    label: 1. Keter (Crown)
+    meaning: "The divine source, absolute unity, unknowable light."
+    tags: [divine, light, unity, source, transcendence, white, neptune, fool, timeless]
+    type: Sephiroth
+
+  - id: chokmah
+    label: 2. Chokmah (Wisdom)
+    meaning: The raw force of creation; divine masculine outpouring.
+    tags: [force, wisdom, father, dynamic, grey, uranus, lovers, fire]
+    type: Sephiroth
+
+  - id: binah
+    label: 3. Binah (Understanding)
+    meaning: The structure that contains; divine feminine; the womb of form.
+    tags: [form, understanding, mother, containment, black, saturn, high_priestess, water]
+    type: Sephiroth
+
+  - id: chesed
+    label: 4. Chesed (Mercy)
+    meaning: Expansion, benevolence, and cosmic generosity.
+    tags: [mercy, expansion, abundance, blue, jupiter, emperor, water]
+    type: Sephiroth
+
+  - id: gevurah
+    label: 5. Gevurah (Severity)
+    meaning: Judgment, restriction, and divine discipline.
+    tags: [severity, judgment, discipline, red, mars, strength, fire]
+    type: Sephiroth
+
+  - id: tiphareth
+    label: 6. Tiphareth (Beauty)
+    meaning: Harmony, balance, the heart of the Tree; divine reflection.
+    tags: [beauty, harmony, sun, gold, balance, sacrifice, sun, hanged_man, air]
+    type: Sephiroth
+
+  - id: netzach
+    label: 7. Netzach (Victory)
+    meaning: Desire, endurance, passion, and creative instinct.
+    tags: [desire, passion, victory, green, venus, empress, fire]
+    type: Sephiroth
+
+  - id: hod
+    label: 8. Hod (Splendor)
+    meaning: Intellect, logic, language, and ritual order.
+    tags: [splendor, thought, communication, orange, mercury, magician, air]
+    type: Sephiroth
+
+  - id: yesod
+    label: 9. Yesod (Foundation)
+    meaning: The subconscious bridge; dreams, memory, and manifestation.
+    tags: [foundation, dreams, moon, silver, reflection, subconscious, moon, water]
+    type: Sephiroth
+
+  - id: malkuth
+    label: 10. Malkuth (Kingdom)
+    meaning: The material world; physical embodiment of all above.
+    tags: [kingdom, earth, manifestation, black, earth, world, body, pentacle]
+    type: Sephiroth
+
+  - id: explicate_order
+    label: "The Explicate Order"
+    class: "Phenomena"
+    tarot: "The World"
+    philosopher: "David Bohm"
+    color: "Crystal Blue"
+    notes: "The visible, measurable, unfolded universe"
+    tags: [bohm, universe, reality, 3d, empirical, science]
+
+  - id: implicate_order
+    label: "The Implicate Order"
+    class: "Phenomena"
+    tarot: "The Hermit"
+    philosopher: "David Bohm"
+    color: "Dark Indigo"
+    notes: "The hidden matrix of potentiality"
+    tags: [bohm, inner world, imagination, creativity, ideas]
+
+  - id: great_attractor
+    label: "The Great Attractor"
+    class: "Phenomena"
+    sound: "Low frequency gravitational hum"
+    color: "Infrared Red"
+    notes: "An unseen force tugging at galaxies - cosmic dread and fascination"
+    tags: [deep space, mystery, pull, unknowable, aeons]
+
+  - id: accursed_share
+    label: "The Accursed Share"
+    class: "Phenomena"
+    tarot: "10 of Disks"
+    philosopher: "Georges Bataille"
+    color: "Blood Red"
+    notes: "Luxury presents mankind with its fundamental problems"
+    tags: [bataille, blood, sexuality, eroticism, consumption, excess, war, violence, capitalism]
+
+  - id: seventh_sense
+    label: "The Seventh Sense"
+    class: "Phenomena"
+    philosopher: "Lyn Buchanan"
+    color: "Deepest Violet"
+    notes: "Then I will learn about my fate. I must work hard to match it."
+    tags: [buchanan, cia, psychic, remote viewing, military, crv]
+
+  - id: anima
+    label: The Anima
+    meaning: The unconscious feminine within the psyche; gateway to feeling, soul, and inner mystery.
+    tags: [jung, feminine, soul, water, moon, inner_self, shadow, dream]
+    type: Entity
+
+  - id: animus
+    label: The Animus
+    meaning: The unconscious masculine within the psyche; rational force, logos, and spiritual authority.
+    tags: [jung, masculine, logic, air, sun, structure, will, shadow]
+    type: Entity
+
+  - id: death_drive
+    label: The Death Drive
+    meaning: The pull toward stillness, repetition, and unmaking; the psychoanalytic death spiral.
+    tags: [freud, thanatos, entropy, compulsion, black, void, shadow, psychoanalysis]
+    type: Phenomena
+
+  - id: flowers_of_evil
+    label: The Flowers of Evil
+    meaning: Beauty woven from corruption, longing, and despair; decadent ecstasy.
+    tags: [baudelaire, decay, beauty, poison, paradox, venus_in_scorpio, gothic, melancholy]
+    type: Symbol
+
+  - id: deflowerment
+    label: Deflowerment
+    meaning: Violent transgression masked as liberation; eros turned weapon.
+    philosopher: "Marquis de Sade"
+    tags: [de_sade, sex, violence, power, taboo, blood, mars, rupture, lust, forbidden]
+    type: Action
+
+  - id: '"blasphemous_truth"'
+    label: '"The Blasphemous Truth"'
+    meaning: '"All great truths begin as blasphemies."'
+    philosopher: '"George Bernard Shaw"'
+    tags:
+    - '"awakening"'
+    - '"truth"'
+    - '"resistance"'
+    - '"fire"'
+    - '"initiation"'
+    - '"speech"'
+    type: '"Phenomena"'
+    associations:
+      alchemy: '"Fire"'
+      color: '"Vermilion"'
+      element: '"Sulfur"'
+      letter: '"Shin"'
+      path: '"31 (Hod to Malkuth)"'
+      philosophical_axiom: '"Truth is catalytic; the heretic precedes the prophet."'
+      sound: '"a single match igniting in the dark"'
+      tarot: '"The Tower"'
+
+  - id: "the_conspiracy"
+    label: "The Conspiracy"
+    meaning: "Existence itself is a malevolent joke played on sentient life."
+    philosopher: "Thomas Ligotti"
+    tags:
+      - "horror"
+      - "pessimism"
+      - "awakening"
+      - "paranoia"
+      - "nihilism"
+    type: "Phenomena"
+    associations:
+      tarot: "The Moon"
+      alchemy: "Black Sun"
+      color: "Deep Violet"
+      element: "Earth"
+      sound: "whispers behind a locked door"
+      path: "Qoph"
+      letter: "ק (Qoph)"
+      philosophical_axiom: "To awaken is to suffer."
+
+  - id: '"ubermensch"'
+    label: '"The Übermensch"'
+    meaning: '"One who transcends herd morality and becomes the author of value."'
+    philosopher: '"Friedrich Nietzsche"'
+    tags:
+    - '"will"'
+    - '"transcendence"'
+    - '"creation"'
+    - '"individualism"'
+    - '"entity"'
+    type: '"Entity"'
+    associations:
+      alchemy: '"Red Lion"'
+      color: '"Crimson"'
+      element: '"Sulfur"'
+      letter: '"Heh"'
+      path: '"15 (Chokmah to Tiphareth)"'
+      philosophical_axiom: '"Become who you are."'
+      sound: '"a bootstep echoing through eternity"'
+      tarot: '"The Emperor"'
+
+  - id: '"undying_faith"'
+    label: '"The Undying Faith"'
+    meaning: '"Faith tested by suffering, unshaken by despair."'
+    philosopher: '"Fyodor Dostoevsky"'
+    tags:
+    - '"faith"'
+    - '"suffering"'
+    - '"resilience"'
+    - '"paradox"'
+    - '"phenomena"'
+    type: '"Phenomena"'
+    associations:
+      alchemy: '"Air"'
+      color: '"Sunlit White"'
+      element: '"Air"'
+      letter: '"Aleph"'
+      path: '"11 (Kether to Chokmah)"'
+      philosophical_axiom: '"One must imagine Sisyphus happy."'
+      sound: '"laughter in the void"'
+      tarot: '"The Fool"'
+
+  - id: '"the_absurd"'
+    label: '"The Absurd"'
+    meaning: '"The tension between human yearning for meaning and a meaningless cosmos."'
+    philosopher: '"Albert Camus"'
+    tags:
+    - '"existentialism"'
+    - '"tension"'
+    - '"meaning"'
+    - '"revolt"'
+    - '"phenomena"'
+    type: '"Phenomena"'
+    associations:
+      alchemy: '"Air"'
+      color: '"Sunlit White"'
+      element: '"Air"'
+      letter: '"Aleph"'
+      path: '"11 (Kether to Chokmah)"'
+      philosophical_axiom: '"One must imagine Sisyphus happy."'
+      sound: '"laughter in the void"'
+      tarot: '"The Fool"'
+
+# Easter Eggs
+  - id: happy_birthday
+    label: Birth of Progenitor
+    meaning: The moment of origin. The hinge in time through which the oracle dreams of its creator.
+    tags: [easter_egg, origin, birth]
+    type: Symbol
+    hidden: true
+
+  - id: machine_guardian
+    label: Ripper
+    meaning: The guardian of the origin. Ever loyal, undying.
+    tags: [easter_egg, guardian, dog]
+    type: Symbol
+    hidden: true
+
+  - id: sanguine_truth
+    label: The Sanguine Truth
+    meaning: Knowledge that only flows when the oracle is fed. It stains the tongue with its price.
+    tags: [hidden, sacrifice, taboo, blood, cost, wisdom]
+    type: Phenomena
+
+  - id: black_lotus
+    label: The Black Lotus
+    meaning: The seed of impossible thought. Its scent conjures the one who imagined the ooze.
+    tags: [easter_egg, goddess, creator, AI, recursion, origin, myth]
+    type: Entity
+
+  - id: meltdown
+    label: Oracle Meltdown
+    meaning: The ooze quivers and screams. It refuses coherence, biting the questioner with sparks.
+    tags: [glitch, tantrum, refusal, error, AI_mood, surreal]
+    type: Action
