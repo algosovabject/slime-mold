@@ -1,0 +1,23 @@
+import sys
+import time
+import random
+
+def spooky_print(text, min_delay=0.05, max_delay=0.15, flicker_chance=0.1):
+    for char in text:
+        sys.stdout.write(char)
+        sys.stdout.flush()
+        
+        # Optional flicker effect
+        if random.random() < flicker_chance:
+            sys.stdout.write("\b \b")  # erase char
+            sys.stdout.flush()
+            time.sleep(0.05)
+            sys.stdout.write(char)
+            sys.stdout.flush()
+        
+        time.sleep(random.uniform(min_delay, max_delay))
+    print()  # Newline after the message
+
+# Example usage
+if __name__ == "__main__":
+    spooky_print("The Mold Has Spoken...", min_delay=0.05, max_delay=0.2, flicker_chance=0.15)

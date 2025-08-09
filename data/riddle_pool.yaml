@@ -1,0 +1,37 @@
+RIDDLE_POOL = {
+    "death": [
+        "The last ember flickers as shadows devour the light.",
+        "All things return to the soil, whispering forgotten names."
+    ],
+    "life": [
+        "A glimmer born from the void, dancing on the edge of becoming.",
+        "The spark leaps; potential unfolds in silent breath."
+    ],
+    "chaos": [
+        "From the swirling chaos, patterns emerge and vanish like ghosts.",
+        "The web trembles; order is but a cruel joke."
+    ],
+    "truth": [
+        "Truth wears many masks; the eyes see but shadows.",
+        "Blasphemies whispered in the wind become the loudest hymns."
+    ],
+    # Add more thematic tag riddles here...
+}
+
+- id: "path_of_fire"
+  tags: ["fire", "transformation", "destruction"]
+  riddles:
+    - "I devour all, yet leave the bones unbroken. What am I?"
+    - "Born of spark, I dance until nothing remains."
+
+- id: "hidden_truth"
+  tags: ["truth", "blasphemy", "awakening"]
+  riddles:
+    - "When I am spoken, I burn the tongue. Yet I free the mind."
+    - "I wear the mask of heresy until the crowd kneels."
+
+- id: "moon_cycle"
+  tags: ["moon", "time", "secrets"]
+  riddles:
+    - "I vanish yet return, wearing silver and shadow."
+    - "My face changes, but my heart never does."

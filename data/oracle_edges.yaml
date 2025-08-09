@@ -1,25 +1,56 @@
 edges: 
   - source: "life"
     target: "altar"
-    weight: 1.0
+    weight: 1
     description: "The divine breath fills the lungs and exhales as the word"
 
   - source: "throne"
     target: "sword"
-    weight: 1.0
+    weight: 1
     description: "Take your power into your own hands... and strike!"
 
   - source: "sword"
     target: "death"
-    weight: 1.0
+    weight: 1
     description: "The way is clear, the obstacles are removed - now silence"
 
   - source: "serpent"
     target: "mirror"
-    weight: 1.0
+    weight: 1
     description: "Know thyself to know the universe"
 
   - source: "life"
     target: "garden"
-    weight: 1.0
+    weight: 1
     description: "Receive then revel in thine blessings"
+
+  - source: "the_conspiracy"
+    target: "the_absurd"
+    label: "reveals"
+    weight: 2
+    tags": ["awakening", "nihilism", "truth"]
+
+    source: "the_absurd"
+    target: "the_undying_faith"
+    label: "defies"
+    weight: 1
+    tags: ["conflict", "choice", "metaphysics"]
+
+    source: "the_absurd"
+    target: "the_ubermensch"
+    label: "provokes"
+    weight: 1
+    tags: ["creation", "overcoming", "revolt"]
+
+    source: "the_undying_faith"
+    target: "the_ubermensch"
+    label: "transforms"
+    weight: 2
+    tags: ["transcendence", "sublimation", "grace"]
+
+    source: "the_ubermensch"
+    target: "the_conspiracy"
+    label: "overcomes"
+    weight: 3
+    tags: ["resistance", "transmutation", "power"]
+

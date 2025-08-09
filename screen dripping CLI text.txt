@@ -1,0 +1,23 @@
+import sys
+import time
+import random
+import shutil
+
+def dripping_text(text, drip_delay=0.05, settle_delay=0.1, max_height=5):
+    columns = shutil.get_terminal_size().columns
+    start_col = max(0, (columns - len(text)) // 2)  # center horizontally
+    
+    for char in text:
+        height = random.randint(1, max_height)
+        for i in range(height):
+            sys.stdout.write("\n")
+            sys.stdout.flush()
+            time.sleep(drip_delay)
+            sys.stdout.write("\033[F")  # move cursor up
+        sys.stdout.write(" " * start_col + char + "\n")
+        sys.stdout.flush()
+        time.sleep(settle_delay)
+    print()  # final newline
+
+if __name__ == "__main__":
+    dripping_text("The Mold Has Spoken...", drip_delay=0.03, settle_delay=0.08, max_height=8)

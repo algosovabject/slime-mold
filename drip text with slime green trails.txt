@@ -1,0 +1,32 @@
+import sys
+import time
+import random
+import shutil
+
+# ANSI escape for green slime
+SLIME_COLOR = "\033[92m"   # bright green
+RESET = "\033[0m"
+
+def slimy_drip_text(text, drip_delay=0.03, settle_delay=0.08, max_height=8, slime_chars=".:;,'`~^"):
+    columns = shutil.get_terminal_size().columns
+    start_col = max(0, (columns - len(text)) // 2)  # center horizontally
+
+    for char in text:
+        height = random.randint(1, max_height)
+        trail_char = random.choice(slime_chars)
+
+        # Drop slime trail
+        for _ in range(height):
+            sys.stdout.write(" " * start_col + SLIME_COLOR + trail_char + RESET + "\n")
+            sys.stdout.flush()
+            time.sleep(drip_delay)
+
+        # Replace slime with the letter
+        sys.stdout.write("\033[F" + " " * start_col + SLIME_COLOR + char + RESET + "\n")
+        sys.stdout.flush()
+        time.sleep(settle_delay)
+
+    print()  # final newline
+
+if __name__ == "__main__":
+    slimy_drip_text("The Mold Has Spoken...")

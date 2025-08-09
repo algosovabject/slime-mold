@@ -8,6 +8,7 @@ import random
 import streamlit as st
 import networkx as nx
 import matplotlib.pyplot as plt
+import time
 
 from oracle import load_oracle_graph, weighted_pseudopod_walk
 from oracle_viz import simulate_exploration, plot_exploration_and_pruned
@@ -15,6 +16,7 @@ from mood_engine import get_oracle_mood
 from input_parser import load_input_map, parse_input
 from memory import log_query
 from responses import get_flavor_line, get_season_flavor
+from interpreter import interpret_path
 
 st.set_page_config(page_title="The Great Lil Oozey", page_icon="🧠")
 st.title("🧠 The Slime Mold Speaks")
@@ -42,8 +44,12 @@ if user_input:
         log_query(user_input, path, matched_tags)
 
         st.success("The ooze responds:")
-        for node in path:
-            st.markdown(f"**{G.nodes[node]['label']}**: {G.nodes[node]['meaning']}")
+        oracle_response = interpret_path(G, path, mood=mood['vibe'])
+        st.markdown(oracle_response)
+
+        # Replace oracle_respone and st.markdown with the below?:
+        #riddle = interpret_path(path_nodes)
+        #print(f"The Mold Has Spoken: {riddle}")
 
         edge_hits = simulate_exploration(G, start_node, num_walks=40, max_steps=5)
         pruned_path = weighted_pseudopod_walk(G, start=start_node)
