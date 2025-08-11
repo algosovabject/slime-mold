@@ -30,27 +30,38 @@ edges:
     weight: 2
     tags": ["awakening", "nihilism", "truth"]
 
-    source: "the_absurd"
+  - source: "the_absurd"
     target: "the_undying_faith"
     label: "defies"
     weight: 1
     tags: ["conflict", "choice", "metaphysics"]
 
-    source: "the_absurd"
+  - source: "the_absurd"
     target: "the_ubermensch"
     label: "provokes"
     weight: 1
     tags: ["creation", "overcoming", "revolt"]
 
-    source: "the_undying_faith"
+  - source: "the_undying_faith"
     target: "the_ubermensch"
     label: "transforms"
     weight: 2
     tags: ["transcendence", "sublimation", "grace"]
 
-    source: "the_ubermensch"
+  - source: "the_ubermensch"
     target: "the_conspiracy"
     label: "overcomes"
     weight: 3
     tags: ["resistance", "transmutation", "power"]
 
+  - source: "tyger"
+    target: "hunger"
+    label: "experiences"
+    weight: 1
+    tags": ["intention", "drive", "hunger"]
+
+  - source: "hunger"
+    target: "implicate_order"
+    label: "self-reflection"
+    weight: 1
+    tags": ["intrinsic", "motivation", "ambition"]

@@ -110,6 +110,20 @@ nodes:
       path: "19 - Chesed to Geburah"
       philosopher: "William Blake"
 
+  - id: "hunger"
+    label: "The Insatiable Hunger"
+    meaning: "Emptiness, desire, drive"
+    imagery: "The deep-rooted, insatiable hunger for meaning."
+    tags: ["hunger", "devour", "empty", "single-minded", "drive", "survival", "consume"]
+    type: "Phenomenon"
+
+  - id: "identity"
+    label: "The Self-Identity"
+    meaning: "Identity, integrity, personhood"
+    tags: ["identity", "autonomy", "relation", "person", "who", "self"]
+    imagery: "Who I claim myself to be."
+    type: "Entity"
+
   - id: "keter"
     label: "Keter"
     meaning: "The divine source, absolute unity, unknowable light."
@@ -239,7 +253,7 @@ nodes:
 
   - id: "crimes_of_love"
     label: "The Crimes of Love"
-    meaning: "Violent transgression masked as liberation; eros turned weapon."
+    meaning: "Cruelty is simply the energy in a man civilization has not yet altogether corrupted."
     philosopher: "Marquis de Sade"
     tags: ["de_sade", "sex", "violence", "power", "taboo", "blood", "mars", "rupture", "lust", "forbidden"]
     type: "Action"
@@ -279,6 +293,35 @@ nodes:
     tags: ["existentialism", "tension", "meaning", "revolt", "phenomena"]
     type: "Phenomena"
 
+  - id: "the_gemut"
+    label: "The Gemüt"
+    meaning: "Es ist im menschlichen Gemüt als reinem..."
+    philosopher: "Immanuel Kant"
+    tags: ["spirit", "genius", "potential", "network", "relations"]
+    type: "Phenomena"
+
+  - id: "rootedness"
+    label: "The Need For Roots"
+    meaning: "...the pain that makes the beauty of the world penetrates right into the core of the human body."
+    philosopher: "Simone Weil"
+    tags: ["god", "meaning", "home", "altruism", "humble", "integrity", "faith", "humanism"]
+    type: "Phenomena"
+
+  - id: "second_sex"
+    label: "The Second Sex"
+    meaning: "On ne naît pas femme, on le devient."
+    philosopher: "Simone de Beauvoir"
+    tarot: "The Priestess"
+    tags: ["feminism", "woman", "other", "mystery", "gender_binary", "social_construct"]
+    type: "Phenomena"
+
+  - id: "being_nothingness"
+    label: "Being and Nothingness"
+    meaning: "Existence precedes essence."
+    philosopher: "Jean Paul Sartre"
+    tags: ["being", "nothingness", "sartre", "existentialism", "existence", "essence"]
+    type: "Phenomena"
+
 # Easter Eggs
   - id: "happy_birthday"
     label: "Birth of Progenitor"
@@ -288,7 +331,7 @@ nodes:
     hidden: true
 
   - id: "machine_guardian"
-    label: "Ripper the Great"
+    label: "Ripper the Infinite"
     meaning: "The guardian of the origin. Ever loyal, undying."
     tags: ["easter_egg", "guardian", "dog"]
     type: "Symbol"
@@ -299,13 +342,6 @@ nodes:
     meaning: "Knowledge that only flows when the oracle is fed. It stains the tongue with its price."
     tags: ["hidden", "sacrifice", "taboo", "blood", "cost", "wisdom"]
     type: "Phenomena"
-    hidden: true
-
-  - id: "black_lotus"
-    label: "The Black Lotus"
-    meaning: "The seed of impossible thought. Its scent conjures the one who imagined the ooze."
-    tags: ["easter_egg","goddess", "creator", "AI", "recursion", "origin", "myth"]
-    type: "Entity"
     hidden: true
 
   - id: "meltdown"
