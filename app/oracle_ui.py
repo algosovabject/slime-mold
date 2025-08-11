@@ -26,12 +26,18 @@ G = load_oracle_graph("data/oracle_nodes.yaml", "data/oracle_edges.yaml")
 input_map = load_input_map("data/input_map.yaml")
 mood = get_oracle_mood()
 
-st.subheader("Mood")
-st.markdown(f"**Vibe:** {mood['vibe']}")
-st.markdown(f"> {get_flavor_line(mood['usage'])}")
-st.markdown(f"> {get_season_flavor(mood['season'])}")
+selected_vibe = random.choice(mood['vibe'])
 
-user_input = st.text_input("What would you like to ask the Oracle?")
+# Get a matching flavor line and season flavor, also single sentences
+flavor_line = get_flavor_line(selected_vibe)
+season_line = get_season_flavor(mood['season'])
+
+# Compose a natural paragraph describing the mold’s mood
+mood_description = f"{flavor_line} {season_line}"
+
+st.markdown(mood_description)
+
+user_input = st.text_input("What question will you lay at the slime mold's uh, feet?")
 
 if user_input:
     start_node = parse_input(user_input, input_map)
@@ -43,13 +49,11 @@ if user_input:
         matched_tags = G.nodes[start_node]['tags']
         log_query(user_input, path, matched_tags)
 
+        # Prepare node data list for interpreter
+        path_nodes = [G.nodes[n] for n in path]
+        oracle_response = interpret_path(path_nodes)
         st.success("The ooze responds:")
-        oracle_response = interpret_path(G, path, mood=mood['vibe'])
         st.markdown(oracle_response)
-
-        # Replace oracle_respone and st.markdown with the below?:
-        #riddle = interpret_path(path_nodes)
-        #print(f"The Mold Has Spoken: {riddle}")
 
         edge_hits = simulate_exploration(G, start_node, num_walks=40, max_steps=5)
         pruned_path = weighted_pseudopod_walk(G, start=start_node)
