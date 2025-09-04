@@ -1,0 +1,81 @@
+
+
+def pitch_shift(sound, semitones):
+    """
+    Pitch-shifts a pygame Sound by resampling it.
+    Positive semitones shift pitch up, negative down.
+    """
+    arr = pygame.sndarray.array(sound)
+    factor = 2 ** (semitones / 12.0)
+    indices = np.round(np.arange(0, len(arr), factor)).astype(int)
+    indices = indices[indices < len(arr)]
+    shifted = arr[indices]
+    shifted_sound = pygame.sndarray.make_sound(shifted)
+    return shifted_sound
+
+
+def plot_exploration_and_pruned_with_pitch_breathing(G, exploration_path, pruned_path, steps=40):
+    pygame.mixer.init()
+    try:
+        pygame.mixer.music.load("ambient_drone.mp3")
+        pygame.mixer.music.set_volume(0.3)
+        pygame.mixer.music.play(loops=-1)
+    except Exception as e:
+        print(f"[Audio] Ambient sound not loaded: {e}")
+
+    try:
+        click_sound = pygame.mixer.Sound("node_ping.wav")
+        click_sound.set_volume(0.7)
+    except Exception as e:
+        print(f"[Audio] Click sound not loaded: {e}")
+        click_sound = None
+
+    try:
+        base_breathe_sound = pygame.mixer.Sound("breath.wav")
+        base_breathe_sound.set_volume(0.6)
+    except Exception as e:
+        print(f"[Audio] Breath sound not loaded: {e}")
+        base_breathe_sound = None
+
+    pos = nx.spring_layout(G, seed=42)
+    fig, ax = plt.subplots(figsize=(8, 6), facecolor="black")
+    ax.set_facecolor("black")
+
+    for i in range(steps):
+        ax.clear()
+        ax.set_facecolor("black")
+
+        nx.draw_networkx_nodes(G, pos, node_size=200, node_color="white", edgecolors="black")
+        nx.draw_networkx_labels(G, pos, font_color="white")
+
+        pulse_alpha = (np.sin(i / 2) + 1) / 2 * 0.7 + 0.3
+
+        nx.draw_networkx_edges(
+            G, pos,
+            edgelist=exploration_path,
+            edge_color=[(0, 1, 0, pulse_alpha)],
+            width=2.5
+        )
+
+        nx.draw_networkx_edges(
+            G, pos,
+            edgelist=pruned_path,
+            edge_color=[(1, 0.5, 0, pulse_alpha)],
+            width=3
+        )
+
+        if click_sound and i % 5 == 0:
+            click_sound.play()
+
+        if base_breathe_sound and abs(pulse_alpha - 1.0) < 0.05:
+            # Random semitone shift between -2 and +2 for subtle variation
+            semitone_shift = np.random.uniform(-2, 2)
+            shifted_breath = pitch_shift(base_breathe_sound, semitone_shift)
+            shifted_breath.set_volume(0.6)
+            shifted_breath.play()
+
+        plt.pause(0.1)
+
+    pygame.mixer.music.fadeout(1500)
+    time.sleep(1)
+    plt.show()

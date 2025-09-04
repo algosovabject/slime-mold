@@ -57,9 +57,11 @@ if user_input:
 
         edge_hits = simulate_exploration(G, start_node, num_walks=40, max_steps=5)
         pruned_path = weighted_pseudopod_walk(G, start=start_node)
-        fig, ax = plt.subplots(figsize=(8,6))
-        plot_exploration_and_pruned(G, start_node, pruned_path, edge_hits, ax=ax)
+        fig, ax = plot_exploration_and_pruned(
+        G, start_node, pruned_path, edge_hits, play_breathing_sound=True
+        )
         st.pyplot(fig)
+
 
 if user_input and start_node:
     pos = nx.spring_layout(G, seed=42)  # consistent layout

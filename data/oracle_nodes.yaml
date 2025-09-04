@@ -322,6 +322,14 @@ nodes:
     tags: ["being", "nothingness", "sartre", "existentialism", "existence", "essence"]
     type: "Phenomena"
 
+  - id: "symbolic"
+    label: "The Symbolic"
+    class: "Entity"
+    philosopher: "Jacques Lacan"
+    color: "Palest Blue-Violet"
+    notes: "The unconscious is structured like a language."
+    tags: ["symbolism", "Lacan", "unstructured", "unconscious", "linguistic"]
+
 # Easter Eggs
   - id: "happy_birthday"
     label: "Birth of Progenitor"

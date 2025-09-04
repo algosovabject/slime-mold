@@ -1,0 +1,10 @@
+import simpleaudio as sa
+
+def play_breathing_sound(file_path):
+    wave_obj = sa.WaveObject.from_wave_file(file_path)
+    play_obj = wave_obj.play()
+    return play_obj  # You can stop it later with play_obj.stop()
+
+# Example:
+# breathing = play_breathing_sound("breathing_loop.wav")
+# breathing.stop()
