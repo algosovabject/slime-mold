@@ -6,7 +6,7 @@ love:
 
 death:
   keywords: ["death", "end", "grief", "loss", "mourning"]
-  node: "void"
+  node: "death"
 
 knowledge:
   keywords: ["wisdom", "knowledge", "learning", "truth", "insight"]
