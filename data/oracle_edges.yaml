@@ -28,27 +28,27 @@ edges:
     target: "the_absurd"
     label: "reveals"
     weight: 2
-    tags": ["awakening", "nihilism", "truth"]
+    tags: ["awakening", "nihilism", "truth"]
 
   - source: "the_absurd"
-    target: "the_undying_faith"
+    target: "undying_faith"
     label: "defies"
     weight: 1
     tags: ["conflict", "choice", "metaphysics"]
 
   - source: "the_absurd"
-    target: "the_ubermensch"
+    target: "ubermensch"
     label: "provokes"
     weight: 1
     tags: ["creation", "overcoming", "revolt"]
 
-  - source: "the_undying_faith"
-    target: "the_ubermensch"
+  - source: "undying_faith"
+    target: "ubermensch"
     label: "transforms"
     weight: 2
     tags: ["transcendence", "sublimation", "grace"]
 
-  - source: "the_ubermensch"
+  - source: "ubermensch"
     target: "the_conspiracy"
     label: "overcomes"
     weight: 3
@@ -58,10 +58,10 @@ edges:
     target: "hunger"
     label: "experiences"
     weight: 1
-    tags": ["intention", "drive", "hunger"]
+    tags: ["intention", "drive", "hunger"]
 
   - source: "hunger"
     target: "implicate_order"
     label: "self-reflection"
     weight: 1
-    tags": ["intrinsic", "motivation", "ambition"]
+    tags: ["intrinsic", "motivation", "ambition"]

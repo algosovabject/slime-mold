@@ -2,7 +2,7 @@
 
 love:
   keywords: ["love", "relationship", "heart", "romance", "connection"]
-  node: "spark"
+  node: "garden"
 
 death:
   keywords: ["death", "end", "grief", "loss", "mourning"]
@@ -18,4 +18,8 @@ identity:
 
 purpose:
   keywords: ["purpose", "meaning", "destiny", "life"]
-  node: "crown"
+  node: "life"
+
+strength:
+  keywords: ["strength", "power", "fortitude", "might"]
+  node: "tyger"

@@ -44,7 +44,7 @@ def plot_exploration_and_pruned(G, start, pruned_path, edge_hits, ax=None, play_
     nx.draw_networkx_nodes(G, pos, node_size=500, node_color='lightgray', ax=ax)
     nx.draw_networkx_labels(
         G, pos,
-        labels={n: G.nodes[n]['label'] for n in G.nodes},
+        labels={n: G.nodes[n].get('label', str(n)) for n in G.nodes},
         font_size=8,
         font_color='white',
         ax=ax
